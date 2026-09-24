@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nombre">Nombre:</string>
+    <string name="_1_datos_del_alumno">1.Datos del alumno</string>
+    <string name="inputPassword">password</string>
+    <string name="texto_pts"><u>Pts</u></string>
+    <string name="respuestaCorrecta">2. Seleciona la respuesta correcta</string>
+    <string name="componentesFlexibles">¿Que componentes se utiliza para crear diseños flexibles?</string>
+    <string name="linearLayout">Linear layout</string>
+    <string name="constraintLayout">Constraint layout</string>
+    <string name="frameLayout">Frame layout</string>
+    <string name="respuestaApliquen">2. Selecciona todas las que apliquen</string>
+    <string name="preguntaComponentes">¿Cuales son los componentes de la arquitectura android?</string>
+    <string name="activity">activity</string>
+    <string name="viewModel">View model</string>
+    <string name="jS">Java script</string>
+    <string name="respository">Respository</string>
+    <string name="preguntaDesarrollo">4. Pregunta de desarrollo</string>
+    <string name="hint">Escribe aqui</string>
+    <string name="dependencyInjection">Explica que es dependency injection</string>
+    <string name="enviarExamen">Enviar examen</string>
+    <string name="examenAndroid">Examen de Android</string>
+
+</resources>
