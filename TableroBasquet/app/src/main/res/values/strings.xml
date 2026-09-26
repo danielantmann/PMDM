@@ -10,4 +10,9 @@
     <string name="equipo_2">Equipo 2</string>
     <string name="puntuacion_team_2">18</string>
     <string name="mas">+</string>
+    <string name="faltas">Faltas</string>
+    <string name="team2_puntos_0">0</string>
+    <string name="cant_faltas_team1_0">0</string>
+    <string name="editar">Editar</string>
+    <string name="compartir">compartir</string>
 </resources>
