@@ -12,10 +12,8 @@ class MainActivity : AppCompatActivity() {
 
     private var scoreTeam1 = 0
     private var scoreTeam2 = 0
-
     private var faltasScoreTeam1 = 0
     private var faltasScoreTeam2 = 0
-
     private var isPlaying = false
     private var timerSeconds = 600
     private lateinit var runnable: Runnable
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnPlay?.setOnClickListener {
+        binding.btnPlay.setOnClickListener {
             if(!isPlaying){
                binding.btnPlay?.text = "Pause"
                 isPlaying =true
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                         timerSeconds --
                     }else{
                         isPlaying = false
-                        binding.btnPlay?.text = "Play"
+                        binding.btnPlay.text = "Play"
                     }
 
                     val minutes = timerSeconds / 60
@@ -64,43 +62,43 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnMas1Team1.setOnClickListener {
             scoreTeam1 +=1
-            binding.puntosTeam1?.text = scoreTeam1.toString()
+            binding.puntosTeam1.text = scoreTeam1.toString()
         }
 
         binding.btnMas2Team1.setOnClickListener {
             scoreTeam1 +=2
-            binding.puntosTeam1?.text = scoreTeam1.toString()
+            binding.puntosTeam1.text = scoreTeam1.toString()
         }
 
         binding.btnMas3Team1.setOnClickListener {
             scoreTeam1 +=3
-            binding.puntosTeam1?.text = scoreTeam1.toString()
+            binding.puntosTeam1.text = scoreTeam1.toString()
         }
 
-        binding.btnMas1Team2?.setOnClickListener {
+        binding.btnMas1Team2.setOnClickListener {
             scoreTeam2 += 1
-            binding.puntosTeam2?.text = scoreTeam2.toString()
+            binding.puntosTeam2.text = scoreTeam2.toString()
         }
 
-        binding.btnMas2Team2?.setOnClickListener {
+        binding.btnMas2Team2.setOnClickListener {
             scoreTeam2 += 2
-            binding.puntosTeam2?.text = scoreTeam2.toString()
+            binding.puntosTeam2.text = scoreTeam2.toString()
         }
 
 
-        binding.btnMas3Team2?.setOnClickListener {
+        binding.btnMas3Team2.setOnClickListener {
             scoreTeam2 += 3
-            binding.puntosTeam2?.text = scoreTeam2.toString()
+            binding.puntosTeam2.text = scoreTeam2.toString()
         }
 
-        binding.btnMasFaltaTeam1?.setOnClickListener {
+        binding.btnMasFaltaTeam1.setOnClickListener {
             faltasScoreTeam1 += 1
-            binding.cantFaltasTeam1?.text = faltasScoreTeam1.toString()
+            binding.cantFaltasTeam1.text = faltasScoreTeam1.toString()
         }
 
-        binding.btnMasFaltaTeam2?.setOnClickListener {
+        binding.btnMasFaltaTeam2.setOnClickListener {
             faltasScoreTeam2 += 1
-            binding.cantFaltasTeam2?.text = faltasScoreTeam2.toString()
+            binding.cantFaltasTeam2.text = faltasScoreTeam2.toString()
         }
 
 

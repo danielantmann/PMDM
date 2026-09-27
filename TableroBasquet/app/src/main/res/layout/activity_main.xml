@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     android:background="@color/black">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop"
         android:layout_width="wrap_content"
@@ -104,7 +103,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:text="Play"
+        android:text="@string/play"
         android:textSize="@dimen/txt25sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"
@@ -117,7 +116,6 @@
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guidelineTop"
-
         app:layout_constraintVertical_chainStyle="spread"
         app:cornerRadius="100dp"
             />
@@ -139,7 +137,7 @@
             android:id="@+id/tiempo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1º"
+            android:text="@string/_1_quarter"
             android:textSize="@dimen/text_55sp"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@id/guidelineRight"
@@ -150,14 +148,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas1Team1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus1"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -167,19 +165,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
             app:layout_constraintVertical_chainStyle="spread"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas2Team1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus2"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -188,18 +186,18 @@
             app:layout_constraintBottom_toTopOf="@id/btnMas3Team1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
-            app:cornerRadius="100dp" />
+            app:cornerRadius="@dimen/_100dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas3Team1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus3"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:textSize="@dimen/txt25sp"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -208,19 +206,19 @@
             app:layout_constraintBottom_toTopOf="@id/guidelineTeam1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
-            app:cornerRadius="100dp" />
+            app:cornerRadius="@dimen/_100dp" />
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas1Team2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus1"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -230,20 +228,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
             app:layout_constraintVertical_chainStyle="spread"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             />
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas2Team2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus2"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
@@ -253,31 +251,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
             app:layout_constraintVertical_chainStyle="spread"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             />
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMas3Team2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/plus3"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginBottom="@dimen/margin_8dp"
             android:layout_marginStart="@dimen/margin_8dp"
             android:layout_marginEnd="@dimen/margin_8dp"
             app:layout_constraintTop_toBottomOf="@id/btnMas2Team2"
-
             app:layout_constraintBottom_toTopOf="@id/guidelineTeam2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
             app:layout_constraintVertical_chainStyle="spread"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             />
 
         <TextView
@@ -339,20 +336,20 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMasFaltaTeam1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             app:layout_constraintDimensionRatio="1:1"
             android:text="@string/mas"
             android:textSize="@dimen/txt25sp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             app:layout_constraintTop_toBottomOf="@id/guidelineTeam2"
             app:layout_constraintStart_toEndOf="@id/guidelineLeftFaltas"
             app:layout_constraintEnd_toStartOf="@id/guidelineCenterLeft"
             app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
             app:layout_constraintVertical_chainStyle="spread"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             />
 
         <TextView
@@ -361,21 +358,21 @@
             android:layout_height="wrap_content"
             android:text="@string/faltas"
             android:textColor="@color/white"
-            android:textSize="35sp"
+            android:textSize="@dimen/txt_35sp"
             app:layout_constraintEnd_toStartOf="@id/guidelineCenterRight"
             app:layout_constraintStart_toStartOf="@+id/guidelineCenterLeft"
             app:layout_constraintTop_toBottomOf="@id/guidelineTeam2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMasFaltaTeam2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_0dp"
             android:backgroundTint="@color/white"
-            android:padding="0dp"
+            android:padding="@dimen/_0dp"
             android:text="@string/mas"
             android:textColor="@color/black"
             android:textSize="@dimen/txt25sp"
-            app:cornerRadius="100dp"
+            app:cornerRadius="@dimen/_100dp"
             app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/guidelineCenterRight"
@@ -388,7 +385,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cant_faltas_team1_0"
-            android:textSize="50sp"
+            android:textSize="@dimen/txt_50sp"
             android:textColor="@color/yellow"
             app:layout_constraintTop_toBottomOf="@id/faltas"
             app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"
@@ -413,7 +410,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/team2_puntos_0"
-            android:textSize="50sp"
+            android:textSize="@dimen/txt_50sp"
             android:textColor="@color/yellow"
             app:layout_constraintTop_toBottomOf="@id/faltas"
             app:layout_constraintBottom_toBottomOf="@id/guidelineBottom"

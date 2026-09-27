@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.74" />
+        app:layout_constraintGuide_percent="0.70" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineBottom"
@@ -57,14 +57,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.42" />
-    <androidx.constraintlayout.widget.Guideline
+        app:layout_constraintGuide_percent="0.40" />
 
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeftBtnContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.34" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRightBtnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -76,25 +92,23 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPlay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:text="Play"
+        android:text="@string/play"
         android:textSize="@dimen/txt25sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:layout_marginStart="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guidelineTop"
-
         app:layout_constraintVertical_chainStyle="spread"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         />
 
     <TextView
@@ -105,15 +119,15 @@
         android:textColor="@color/red"
         android:textSize="@dimen/text_75sp"
         app:layout_constraintBottom_toTopOf="@id/guidelineTop"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRightToEnd"
-        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRightBtn"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeftBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1º"
+        android:text="@string/_1_quarter"
         android:textColor="@color/white"
         android:textSize="@dimen/text_55sp"
         app:layout_constraintBottom_toTopOf="@id/guidelineTop"
@@ -123,14 +137,14 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas1Team1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         app:layout_constraintDimensionRatio="1:1"
         android:text="@string/plus1"
         android:textSize="@dimen/txt25sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:layout_marginStart="@dimen/margin_8dp"
@@ -140,19 +154,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
         app:layout_constraintVertical_chainStyle="spread"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas2Team1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         app:layout_constraintDimensionRatio="1:1"
         android:text="@string/plus2"
         android:textSize="@dimen/txt25sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:layout_marginStart="@dimen/margin_8dp"
@@ -161,21 +175,21 @@
         app:layout_constraintBottom_toTopOf="@id/btnMas3Team1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
-        app:cornerRadius="100dp" />
+        app:cornerRadius="@dimen/_100dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas3Team1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:layout_marginStart="@dimen/margin_8dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/plus3"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineTeam2"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft"
@@ -185,17 +199,17 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas1Team2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/plus1"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         app:layout_constraintBottom_toTopOf="@id/btnMas2Team2"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,13 +220,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas2Team2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/plus2"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
@@ -227,19 +241,18 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMas3Team2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_8dp"
         android:layout_marginBottom="@dimen/margin_8dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/plus3"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         app:layout_constraintBottom_toTopOf="@id/guidelineTeam2"
-
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineRightToEnd"
@@ -253,11 +266,10 @@
         android:text="@string/x"
         android:textColor="@color/white"
         android:textSize="@dimen/text_55sp"
-
         app:layout_constraintEnd_toStartOf="@+id/puntosTeam_2"
         app:layout_constraintStart_toEndOf="@+id/puntosTeam_1"
         app:layout_constraintBottom_toBottomOf="@id/guidelineTeam2"
-        app:layout_constraintTop_toBottomOf="@id/guidelineTop"/>
+        app:layout_constraintTop_toBottomOf="@id/team1"/>
 
     <TextView
         android:id="@+id/team1"
@@ -266,7 +278,6 @@
         android:text="@string/equipo_1"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_45sp"
-
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
 
@@ -280,7 +291,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineTeam2"
         app:layout_constraintEnd_toStartOf="@+id/x"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+        app:layout_constraintTop_toBottomOf="@id/team1" />
 
     <TextView
         android:id="@+id/team2"
@@ -300,23 +311,21 @@
         android:text="@string/_0"
         android:textColor="@color/green"
         android:textSize="@dimen/txt_150sp"
-
         app:layout_constraintBottom_toTopOf="@+id/guidelineTeam2"
         app:layout_constraintEnd_toStartOf="@+id/guidelineRightToEnd"
         app:layout_constraintStart_toEndOf="@id/x"
-
-        app:layout_constraintTop_toBottomOf="@+id/guidelineTop" />
+        app:layout_constraintTop_toBottomOf="@+id/team2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMasFaltaTeam1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/mas"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
-        app:cornerRadius="100dp"
+        app:cornerRadius="@dimen/_100dp"
         app:layout_constraintBottom_toTopOf="@id/guidelineBottomBtn"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@+id/guidelineLeftBtnContainer"
@@ -330,26 +339,27 @@
         android:layout_height="wrap_content"
         android:text="@string/faltas"
         android:textColor="@color/white"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnMasFaltaTeam2"
-        app:layout_constraintStart_toEndOf="@+id/btnMasFaltaTeam1"
-        app:layout_constraintTop_toBottomOf="@id/guidelineTeam2" />
+        android:textSize="@dimen/txt_35sp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRightBtn"
+        app:layout_constraintStart_toEndOf="@+id/guidelineLeftBtn"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTeam2"
+        app:layout_constraintBottom_toTopOf="@id/guidelineTopBtn"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMasFaltaTeam2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
         android:backgroundTint="@color/white"
-        android:padding="0dp"
+        android:padding="@dimen/_0dp"
         android:text="@string/mas"
         android:textColor="@color/black"
         android:textSize="@dimen/txt25sp"
-        app:cornerRadius="100dp"
-        app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
+        app:cornerRadius="@dimen/_100dp"
+        app:layout_constraintBottom_toTopOf="@id/guidelineBottomBtn"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/guidelineRightToEnd"
-        app:layout_constraintStart_toEndOf="@id/cantFaltasTeam2"
-        app:layout_constraintTop_toBottomOf="@id/guidelineTeam2"
+        app:layout_constraintEnd_toStartOf="@id/guidelineRightBtnContainer"
+        app:layout_constraintStart_toEndOf="@id/guidelineRightBtn"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTopBtn"
         app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
@@ -358,12 +368,12 @@
         android:layout_height="wrap_content"
         android:text="@string/cant_faltas_team1_0"
         android:textColor="@color/yellow"
-        android:textSize="50sp"
+        android:textSize="@dimen/txt_50sp"
 
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottomBtn"
         app:layout_constraintEnd_toStartOf="@+id/separadorFaltas"
         app:layout_constraintStart_toEndOf="@+id/guidelineLeftBtn"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTeam2" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopBtn" />
 
     <TextView
         android:id="@+id/separadorFaltas"
@@ -374,6 +384,8 @@
         app:layout_constraintTop_toBottomOf="@id/faltas"
         app:layout_constraintEnd_toStartOf="@id/cantFaltasTeam2"
         app:layout_constraintStart_toEndOf="@id/cantFaltasTeam1"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottomBtn"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopBtn"
         />
 
     <TextView
@@ -382,19 +394,19 @@
         android:layout_height="wrap_content"
         android:text="@string/team2_puntos_0"
         android:textColor="@color/yellow"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
-        app:layout_constraintEnd_toStartOf="@+id/btnMasFaltaTeam2"
+        android:textSize="@dimen/txt_50sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottomBtn"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRightBtn"
         app:layout_constraintStart_toEndOf="@+id/separadorFaltas"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTeam2" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopBtn" />
 
     <Button
         android:id="@+id/buttonEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
         android:text="@string/editar"
-
         app:layout_constraintBottom_toTopOf="@+id/guidelineTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineRightToEnd"
@@ -405,11 +417,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
         android:text="@string/compartir"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toStartOf="@+id/guidelineLeft"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineTeam2" />
+        app:layout_constraintBottom_toTopOf="@id/guidelineBottomBtn"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTopBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
