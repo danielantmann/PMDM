@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnPlay.setOnClickListener {
             if(!isPlaying){
-               binding.btnPlay?.text = "Pause"
-                isPlaying =true
-            }else{
-                binding.btnPlay?.text = "Play"
+                isPlaying = true
+                binding.btnPlay.setIconResource(R.drawable.ic_pause)
+            } else {
                 isPlaying = false
+                binding.btnPlay.setIconResource(R.drawable.ic_play)
             }
         }
 
@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
                         timerSeconds --
                     }else{
                         isPlaying = false
-                        binding.btnPlay.text = "Play"
+                        binding.btnPlay.setIconResource(R.drawable.ic_play)
                     }
 
                     val minutes = timerSeconds / 60
                     val secs = timerSeconds % 60
-                    val timeFormatted = String.format("%02d:%02d", minutes, secs)
+                    val timeFormatted = String.format(java.util.Locale.getDefault(), "%02d:%02d", minutes, secs)
                     binding.timer.text = timeFormatted
                 }
                 handler.postDelayed(this,1000)
@@ -85,7 +85,6 @@ class MainActivity : AppCompatActivity() {
             binding.puntosTeam2.text = scoreTeam2.toString()
         }
 
-
         binding.btnMas3Team2.setOnClickListener {
             scoreTeam2 += 3
             binding.puntosTeam2.text = scoreTeam2.toString()
@@ -100,7 +99,5 @@ class MainActivity : AppCompatActivity() {
             faltasScoreTeam2 += 1
             binding.cantFaltasTeam2.text = faltasScoreTeam2.toString()
         }
-
-
     }
 }
