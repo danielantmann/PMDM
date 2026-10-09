@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CalcularAprobados</string>
+    <string name="calculador_de_notas">Calculador de notas</string>
+    <string name="introduce_tu_nota">introduce tu nota:</string>
+    <string name="notaInput">nota:</string>
+    <string name="calcular">Calcular</string>
+    <string name="calcular_promedio">Calcular Promedio</string>
+</resources>

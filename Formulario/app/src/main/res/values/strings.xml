@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Formulario</string>
+    <string name="mensaje">mensaje</string>
+    <string name="nombre">nombre</string>
+</resources>
