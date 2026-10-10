@@ -22,8 +22,8 @@ class MainViewModel (
     val state: MutableLiveData<MainState> = _state
 
 
-    fun handleCalcularNotas(textoNota : String){
-        if (textoNota.isNullOrBlank()){
+    fun handleCalcularNotas(textoNombre: String ,textoNota : String){
+        if (textoNota.isNullOrBlank() || textoNombre.isNullOrBlank()){
             _state.value = _state.value?.copy(error= "Pro favor rellena los campos con numeros")
             return
         }
@@ -35,13 +35,13 @@ class MainViewModel (
         }
 
         val resultado = calcularAprobadosUseCases.calculaAprobado(notaInt)
-
+        val mensaje = "Alumno ${textoNombre} : ${resultado}"
         _state.value = _state.value?.copy(
-            resultado=resultado,
+            resultado=mensaje,
             error = null
         )
 
-        agregarNotaUseCase.agregarNota(Nota(notaInt))
+        agregarNotaUseCase.agregarNota(Nota(textoNombre,notaInt))
     }
 
     fun handleCalcularPromedio(){

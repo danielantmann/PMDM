@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
     private fun setUpEvento(){
         binding.buttonCalcular.setOnClickListener {
             val nota = binding.etNota.text.toString()
-
-            viewModel.handleCalcularNotas(nota)
+            val nombre = binding.etNombre.text.toString()
+            viewModel.handleCalcularNotas(nombre, nota)
         }
 
         binding.buttonCalcularPromedio.setOnClickListener {

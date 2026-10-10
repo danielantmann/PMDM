@@ -6,7 +6,7 @@ class CalcularAprobadosUseCases {
         if (nota > 4){
             return "aprobado"
         }else{
-            return "Mala suerte, intentelo denuevo en el proximo examen"
+            return "suspenso"
         }
     }
 

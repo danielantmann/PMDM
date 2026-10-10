@@ -79,6 +79,37 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:id="@+id/nombreLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="@string/introduce_tu_nota"
+        app:layout_constraintEnd_toStartOf="@+id/inputNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notaLabel" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputNombre"
+        style="?attr/textInputFilledStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/notaInput"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzquierda"
+        app:layout_constraintTop_toBottomOf="@+id/filledTextField"
+        android:layout_marginTop="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
         android:id="@+id/resultadoTexto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

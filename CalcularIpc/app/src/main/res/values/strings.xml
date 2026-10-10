@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CalcularIpc</string>
+    <string name="nombre">nombre:</string>
+    <string name="peso">peso:</string>
+    <string name="altura">altura:</string>
+    <string name="nombreLabel">Nombre:</string>
+    <string name="pesoLabel">peso:</string>
+    <string name="calcular">Calcular</string>
+</resources>
