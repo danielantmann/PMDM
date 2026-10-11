@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="introduce_la_tarea">Introduce la tarea:</string>
+    <string name="tarea">Tarea:</string>
+    <string name="agregar">Agregar</string>
+    <string name="tareas">TAREAS:</string>
+</resources>
