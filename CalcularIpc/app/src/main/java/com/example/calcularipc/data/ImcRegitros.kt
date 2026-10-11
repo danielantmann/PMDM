@@ -13,4 +13,8 @@ object ImcRegitros {
         return imcRegistros
     }
 
+    fun eliminarRegistros(id: String){
+        imcRegistros.removeAll{it.id == id}
+    }
+
 }

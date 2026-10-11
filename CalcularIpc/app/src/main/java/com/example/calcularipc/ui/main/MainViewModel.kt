@@ -6,11 +6,17 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.calcularipc.data.ImcRegitros
 import com.example.calcularipc.domain.model.ImcRegistro
 import com.example.calcularipc.domain.useCases.CalcularImcUseCase
+import com.example.calcularipc.domain.useCases.EliminarRegistroUseCase
+import com.example.calcularipc.domain.useCases.GuardarRegistroUseCase
 import com.example.calcularipc.domain.useCases.ObtenerClasificacionImcUseCase
+import com.example.calcularipc.domain.useCases.ObtenerRegistrosUseCase
 
 class MainViewModel (
     private val calcularImcUseCase: CalcularImcUseCase,
     private val clasificacionImcUseCase: ObtenerClasificacionImcUseCase,
+    private val obtenerRegistrosUseCase: ObtenerRegistrosUseCase,
+    private val guardarRegistroUseCase: GuardarRegistroUseCase,
+    private val eliminarRegistroUseCase: EliminarRegistroUseCase
 ): ViewModel() {
 
     private val _state = MutableLiveData(MainState(resultadoImc = ""))
@@ -35,26 +41,48 @@ class MainViewModel (
         val resultadoImc = calcularImcUseCase.calcularImc(pesoDoubble,alturaDoubble)
         val resultadoTexto = clasificacionImcUseCase.clasificarImc(resultadoImc)
         val mensaje = "${txtNombre} : ${resultadoTexto}"
-        val registro = ImcRegistro(txtNombre,resultadoImc,resultadoTexto)
-        ImcRegitros.agregarRegistro(registro)
+        val registro = ImcRegistro(
+            nombre = txtNombre,
+            imc = resultadoImc,
+            resultado = resultadoTexto
+        )
+
+        guardarRegistroUseCase.guardarRegistro(registro)
 
         _state.value = _state.value?.copy(
             resultadoImc= mensaje,
             error = null,
-            listaImc = ImcRegitros.obtenerRegistros()
+            listaImc = obtenerRegistrosUseCase.obtenerRegistros()
         )
 
+    }
+
+    fun handleEliminarRegistro(id: String){
+        eliminarRegistroUseCase.eliminarRegistro(id)
+
+        _state.value = _state.value?.copy(
+            listaImc = obtenerRegistrosUseCase.obtenerRegistros()
+        )
     }
 
 
     class MainViewModelFactory(
         private val calcularImcUseCase: CalcularImcUseCase,
-        private val clasificacionImcUseCase: ObtenerClasificacionImcUseCase
+        private val clasificacionImcUseCase: ObtenerClasificacionImcUseCase,
+        private val obtenerRegistrosUseCase: ObtenerRegistrosUseCase,
+        private val guardarRegistroUseCase: GuardarRegistroUseCase,
+        private val eliminarRegistroUseCase: EliminarRegistroUseCase
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(com.example.calcularipc.ui.main.MainViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return MainViewModel(calcularImcUseCase, clasificacionImcUseCase   ) as T
+                return MainViewModel(
+                    calcularImcUseCase,
+                    clasificacionImcUseCase,
+                    obtenerRegistrosUseCase,
+                    guardarRegistroUseCase,
+                    eliminarRegistroUseCase
+                ) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

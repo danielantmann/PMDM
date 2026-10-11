@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.calcularipc.R
 import com.example.calcularipc.domain.model.ImcRegistro
 
-class ImcAdapter(private val listaRegistros: List<ImcRegistro>) : RecyclerView.Adapter<ImcAdapter.ViewHolder>() {
+class ImcAdapter(private val listaRegistros: List<ImcRegistro> ,
+                 private val onItemClick: (String) -> Unit // Lambda que recibe el ID al hacer clic
+                 ) : RecyclerView.Adapter<ImcAdapter.ViewHolder>() {
 
     // 1. ViewHolder: Vincula los componentes visuales de tu plantilla (item_imc.xml)
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvNombre: TextView = view.findViewById(R.id.tvNombreItem)
         val tvImc: TextView = view.findViewById(R.id.tvImcItem)
+
+
     }
 
     // 2. Crea/Infla visualmente la fila a partir de tu xml
@@ -27,6 +31,11 @@ class ImcAdapter(private val listaRegistros: List<ImcRegistro>) : RecyclerView.A
         val registro = listaRegistros[position]
         holder.tvNombre.text = registro.nombre
         holder.tvImc.text = registro.imc.toString()
+
+        // ¡Aquí está la clave! Al pulsar en CUALQUIER parte de la celda:
+        holder.itemView.setOnClickListener {
+            onItemClick(registro.id) // Enviamos el ID al MainActivity
+        }
     }
 
     // 4. Devuelve el número total de elementos que tiene la lista

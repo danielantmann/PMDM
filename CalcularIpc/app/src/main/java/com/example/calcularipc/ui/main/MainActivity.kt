@@ -20,7 +20,10 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels {
         MainViewModel.MainViewModelFactory(
             AppModule.calcularImcUseCase,
-            AppModule.clasificacionImcUseCase
+            AppModule.clasificacionImcUseCase,
+            AppModule.obtenerRegistrosUseCase,
+            AppModule.guardarRegistroUseCase,
+            AppModule.eliminarRegistroUseCase
         )
     }
 
@@ -40,7 +43,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView(){
-        adaptador = ImcAdapter(emptyList())
+// Al crear el adaptador, le pasamos la lista vacía Y LA LAMBDA para eliminar
+        adaptador = ImcAdapter(emptyList()) { idRegistro ->
+            viewModel.handleEliminarRegistro(idRegistro)
+        }
         binding.recyclerViewImc.adapter = adaptador
     }
     private fun setUpEvento(){
@@ -64,7 +70,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             it?.listaImc?.let { lista ->
-                adaptador = ImcAdapter(lista)
+                // Si prefieres recrear el adaptador (válido para examen rápido):
+                adaptador = ImcAdapter(lista) { idRegistro ->
+                    viewModel.handleEliminarRegistro(idRegistro)
+                }
                 binding.recyclerViewImc.adapter =adaptador
             }
         })
