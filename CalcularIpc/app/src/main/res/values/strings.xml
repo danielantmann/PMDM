@@ -6,4 +6,5 @@
     <string name="nombreLabel">Nombre:</string>
     <string name="pesoLabel">peso:</string>
     <string name="calcular">Calcular</string>
+    <string name="imc">IMC</string>
 </resources>

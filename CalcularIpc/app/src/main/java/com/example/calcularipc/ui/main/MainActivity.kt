@@ -15,9 +15,12 @@ class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
+    private lateinit var adaptador: ImcAdapter
+
     private val viewModel: MainViewModel by viewModels {
         MainViewModel.MainViewModelFactory(
             AppModule.calcularImcUseCase,
+            AppModule.clasificacionImcUseCase
         )
     }
 
@@ -31,10 +34,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        setUpRecyclerView()
         observarEstado()
         setUpEvento()
     }
 
+    private fun setUpRecyclerView(){
+        adaptador = ImcAdapter(emptyList())
+        binding.recyclerViewImc.adapter = adaptador
+    }
     private fun setUpEvento(){
         binding.buttonCalcular.setOnClickListener {
             val nombre = binding.etNombre.text.toString()
@@ -53,6 +61,11 @@ class MainActivity : AppCompatActivity() {
 
             it?.error?.let{ error ->
                 Toast.makeText(this,error,Toast.LENGTH_SHORT).show()
+            }
+
+            it?.listaImc?.let { lista ->
+                adaptador = ImcAdapter(lista)
+                binding.recyclerViewImc.adapter =adaptador
             }
         })
     }

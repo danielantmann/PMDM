@@ -15,6 +15,36 @@
         app:layout_constraintGuide_percent="0.15"/>
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalInput1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26"/>
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guidelineHorizontalInput2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36"/>
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guidelineHorizontalInput3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46"/>
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guidelineHorizontalResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52"/>
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontalBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,10 +73,10 @@
         android:id="@+id/nombreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
         android:text="@string/nombreLabel"
         android:textSize="16sp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:layout_marginBottom="@dimen/_16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalInput1"
         app:layout_constraintEnd_toStartOf="@+id/inputNombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
@@ -55,10 +85,10 @@
         android:id="@+id/pesoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
         android:text="@string/pesoLabel"
         android:textSize="16sp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:layout_marginBottom="@dimen/_16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalInput2"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalLeft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreLabel" />
@@ -67,14 +97,14 @@
         android:id="@+id/alturaLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16dp"
         android:text="@string/altura"
         android:textSize="16sp"
 
-        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalBottom"
+
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalInput3"
         app:layout_constraintEnd_toStartOf="@+id/inputAltura"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pesoLabel" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalInput2" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputNombre"
@@ -144,14 +174,25 @@
         android:id="@+id/textoResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16dp"
         android:text="resultado"
         android:textSize="16sp"
 
-        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalResultado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
-        app:layout_constraintTop_toBottomOf="@+id/pesoLabel" />
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalInput3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewImc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCalcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/textoResultado" />
 
     <Button
         android:id="@+id/buttonCalcular"
