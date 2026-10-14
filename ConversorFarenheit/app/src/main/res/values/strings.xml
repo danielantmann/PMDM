@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ConversorFarenheit</string>
+    <string name="conversor_de_grados">Conversor de Grados</string>
+    <string name="introduce_los_celsius">Introduce los Celsius:</string>
+    <string name="grados">Grados</string>
+    <string name="calcular">Calcular</string>
+    <string name="resultado">Resultado:</string>
+</resources>
