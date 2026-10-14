@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CalculadoraDeHipoteca</string>
+    <string name="calculadora_de_hipoteca">Calculadora de hipoteca</string>
+    <string name="precio">precio</string>
+</resources>
