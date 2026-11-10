@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalMidTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalBotones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalCheckbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalCheckbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.53" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalCheckbox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.63" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalCheckbox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.73" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalIzq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalCentroDer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalDerecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.86" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/taskmate"
+        android:textSize="@dimen/_30sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalTop"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalTop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLupa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalTop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTresPuntos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalTop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/saludo"
+        android:layout_width="133dp"
+        android:layout_height="38dp"
+        android:text="@string/hola_ana"
+        android:textSize="@dimen/_30sp"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
+
+    <TextView
+        android:id="@+id/subtituloSaludo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tienes_3_tareas_pendientes"
+        android:textSize="15sp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalMidTop"
+
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalCentroDer"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
+
+    <Button
+        android:id="@+id/buttonTodas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+
+        android:text="@string/completadas"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
+
+    <Button
+        android:id="@+id/buttonCompletadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/_8dp"
+        android:text="@string/todas"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentroDer"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
+
+    <Button
+        android:id="@+id/buttonPendientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+        android:text="pendientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalTop" />
+
+    <Button
+        android:id="@+id/buttonAltaEstudiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+        android:text="@string/alta"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBotones" />
+
+    <Button
+        android:id="@+id/media"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+        android:text="@string/media"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox2"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox1" />
+
+    <Button
+        android:id="@+id/baja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+        android:text="@string/baja"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox3"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox2" />
+
+    <Button
+        android:id="@+id/alta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:backgroundTint="@color/gray"
+        android:text="@string/baja"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox4"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox3" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEstudiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/estudiar_xl"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox1"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalBotones" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3Puntitos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox1"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBotones"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <CheckBox
+        android:id="@+id/Ejercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/ejercicio"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox2"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox1"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <CheckBox
+        android:id="@+id/Leer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/leer"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox3"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox2" />
+
+
+    <CheckBox
+        android:id="@+id/prepararPresentacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="preparar"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox4"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox3" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3Puntitos2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox2"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox1"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3Puntitos3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox2"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn3Puntitos4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalCheckbox4"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalCheckbox4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnInicio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="@dimen/_16dp"
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalCentroDer"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTodos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_16dp"
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentroDer"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnestadisticas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_16dp"
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalCentro"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnePerfil"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_16dp"
+        android:backgroundTint="@color/purple"
+        android:contentDescription="@string/btn_hamb"
+        android:insetLeft="@dimen/_0dp"
+        android:insetTop="@dimen/_0dp"
+        android:insetRight="@dimen/_0dp"
+        android:insetBottom="@dimen/_0dp"
+        android:padding="@dimen/_0dp"
+        app:cornerRadius="@dimen/_100dp"
+        app:icon="@drawable/baseline_menu_24"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalDerecha"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontalBottom"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

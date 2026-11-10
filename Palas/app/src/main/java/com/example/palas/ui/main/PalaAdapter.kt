@@ -2,6 +2,7 @@ package com.example.palas.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView

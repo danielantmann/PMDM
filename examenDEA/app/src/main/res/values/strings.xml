@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">examenDEA</string>
+    <string name="taskmate">TaskMate</string>
+    <string name="btn_hamb">btn_hamb</string>
+    <string name="hola_ana">Hola, Ana</string>
+    <string name="tienes_3_tareas_pendientes">Tienes 3 tareas pendientes</string>
+    <string name="todas">Todas</string>
+    <string name="completadas">completadas</string>
+    <string name="estudiar_xl">Estudiar XL</string>
+    <string name="alta">alta</string>
+    <string name="media">media</string>
+    <string name="leer">Leer</string>
+    <string name="ejercicio">Ejercicio</string>
+    <string name="baja">baja</string>
+    <string name="hoy_10_00">hoy: 10:00</string>
+</resources>

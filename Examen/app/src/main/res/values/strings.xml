@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Examen</string>
+    <string name="alumno">alumno</string>
+    <string name="nombre">nombre</string>
+    <string name="nombrealumno">nombreAlumno</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="add">+ Add</string>
+    <string name="apellido">apellido</string>
+    <string name="curso">curso</string>
+    <string name="mail">mail</string>
+    <string name="edad">Edad</string>
+    <string name="activo">Activo</string>
+    <string name="gestion_de_alumnos">Gestion de Alumnos</string>
+    <string name="lista_de_alumnos">Lista de alumnos:</string>
+</resources>
