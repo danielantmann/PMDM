@@ -17,7 +17,8 @@ class MainViewModel(
     private val addLibroUseCase: AddLibroUseCase,
     private val deleteLibroUseCase: DeleteLibroUseCase,
     private val cargarLibrosUseCase: CargarLibrosUseCase
-): ViewModel() {
+) : ViewModel() {
+
     private val _state = MutableStateFlow(MainState())
     val state: StateFlow<MainState> = _state.asStateFlow()
 
@@ -28,34 +29,34 @@ class MainViewModel(
         }
     }
 
-    fun onChangeLibro(libroForm: Libro){
+    fun onChangeLibro(libroForm: Libro) {
         _state.update {
             it.copy(
                 libro = libroForm,
-                error = null
+                error = null,
+                mensaje = null
             )
         }
     }
 
-    fun onAddLibro(){
+    fun onAddLibro() {
         viewModelScope.launch {
-            _state.update { it.copy(error = null) }
+            val form = _state.value.libro
 
-            val nuevoLibro = _state.value.libro
-            addLibroUseCase.addLibro(nuevoLibro)
+            if (form.nombre.isBlank()) {
+                _state.update { it.copy(error = "El nombre es obligatorio", mensaje = null) }
+                return@launch
+            }
+
+            addLibroUseCase.addLibro(form)
 
             val listaActualizada = cargarLibrosUseCase.cargarLibros()
-
             _state.update {
                 it.copy(
                     libros = listaActualizada,
-                    libro= Libro(
-                        nombre = "",
-                        autor = "",
-                        anio = 0,
-                        categoria = "",
-                        disponible = false
-                    )
+                    libro = Libro(),
+                    error = null,
+                    mensaje = "Libro añadido"
                 )
             }
         }
@@ -63,30 +64,41 @@ class MainViewModel(
 
     fun onSelectLibro(libro: Libro) {
         _state.update {
-            it.copy(libroSeleccionado = libro)
+            it.copy(
+                libroSeleccionado = libro,
+                error = null,
+                mensaje = null
+            )
         }
     }
 
-    fun onDeleteLibro(){
-        val seleccionado = _state.value.libroSeleccionado ?: return
+    fun onDeleteLibro() {
+        val seleccionado = _state.value.libroSeleccionado
+        if (seleccionado == null) {
+            _state.update {
+                it.copy(error = "Selecciona un libro primero", mensaje = null)
+            }
+            return
+        }
+
         viewModelScope.launch {
             deleteLibroUseCase.deleteLibro(seleccionado)
-
             val listaActualizada = cargarLibrosUseCase.cargarLibros()
-
             _state.update {
                 it.copy(
                     libros = listaActualizada,
-                    libroSeleccionado = null
+                    libroSeleccionado = null,
+                    error = null,
+                    mensaje = "Libro eliminado"
                 )
             }
         }
+    }
 
+    fun clearMessages() {
+        _state.update { it.copy(error = null, mensaje = null) }
     }
 }
-
-
-
 
 class MainViewModelFactory(
     private val addLibroUseCase: AddLibroUseCase,
@@ -94,9 +106,12 @@ class MainViewModelFactory(
     private val cargarLibrosUseCase: CargarLibrosUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(com.example.bibliotecacompose.ui.main.MainViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST") return MainViewModel(
-                addLibroUseCase, deleteLibroUseCase, cargarLibrosUseCase
+        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return MainViewModel(
+                addLibroUseCase,
+                deleteLibroUseCase,
+                cargarLibrosUseCase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

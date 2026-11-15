@@ -10,30 +10,44 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Category
+import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -76,7 +90,8 @@ fun MainPatnalla(
         onChangeLibro = viewModel::onChangeLibro,
         onAddLibro = viewModel::onAddLibro,
         onSelectLibro = viewModel::onSelectLibro,
-        onBorrarLibro = viewModel::onDeleteLibro
+        onBorrarLibro = viewModel::onDeleteLibro,
+        onClearMessages = viewModel::clearMessages
     )
 }
 
@@ -88,15 +103,40 @@ fun MainPantallaContent(
     onChangeLibro: (Libro) -> Unit,
     onAddLibro: () -> Unit,
     onSelectLibro: (Libro) -> Unit,
-    onBorrarLibro: () -> Unit
+    onBorrarLibro: () -> Unit,
+    onClearMessages: () -> Unit = {}
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
 
+    LaunchedEffect(state.error) {
+        state.error?.let {
+            snackbarHostState.showSnackbar(it)
+            onClearMessages()
+        }
+    }
+    LaunchedEffect(state.mensaje) {
+        state.mensaje?.let {
+            snackbarHostState.showSnackbar(it)
+            onClearMessages()
+        }
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { Text("Biblioteca") },
+                title = {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.MenuBook,
+                            contentDescription = null,
+                            tint = Color.White
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text("Biblioteca")
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = Color.White
@@ -110,7 +150,6 @@ fun MainPantallaContent(
                 .padding(innerPadding)
                 .padding(12.dp)
         ) {
-            // LISTA: solo esta lleva weight
             SeccionListaLibros(
                 state = state,
                 onLibroClick = onSelectLibro,
@@ -119,7 +158,6 @@ fun MainPantallaContent(
                     .fillMaxWidth()
             )
 
-            // FORM: altura natural (compacto)
             FormLibros(
                 state = state,
                 onChangeLibro = onChangeLibro,
@@ -129,7 +167,6 @@ fun MainPantallaContent(
                     .padding(top = 8.dp)
             )
 
-            // BORRAR: misma lógica que tenías
             Button(
                 onClick = onBorrarLibro,
                 colors = ButtonDefaults.buttonColors(
@@ -140,7 +177,13 @@ fun MainPantallaContent(
                     .fillMaxWidth()
                     .padding(top = 8.dp)
             ) {
-                Text("🗑️ Borrar producto seleccionado")
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp)
+                )
+                Spacer(Modifier.width(8.dp))
+                Text("Borrar libro seleccionado")
             }
         }
     }
@@ -185,10 +228,7 @@ fun LibroItemCard(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(0.dp)
             ) {
-                Text(
-                    text = libro.nombre,
-                    style = MaterialTheme.typography.titleSmall
-                )
+                Text(text = libro.nombre, style = MaterialTheme.typography.titleSmall)
                 Text(
                     text = libro.autor,
                     style = MaterialTheme.typography.bodySmall,
@@ -227,49 +267,34 @@ fun LibroItemCard(
 }
 
 @Composable
-fun ListaLibros(
-    libros: List<Libro>,
-    onLibroClick: (Libro) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    LazyColumn(
-        modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
-    ) {
-        items(
-            items = libros,
-            key = { libro -> libro.nombre }
-        ) { libro ->
-            LibroItemCard(
-                libro = libro,
-                onClick = { onLibroClick(libro) }
-            )
-        }
-    }
-}
-
-@Composable
 fun SeccionListaLibros(
     state: MainState,
     onLibroClick: (Libro) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(6.dp)
-    ) {
+    Column(modifier = modifier) {
         Text(
             text = "Lista de libros (${state.libros.size})",
             style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onBackground,
+            modifier = Modifier.padding(bottom = 6.dp)
         )
-        ListaLibros(
-            libros = state.libros,
-            onLibroClick = onLibroClick,
+        LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
-        )
+                .weight(1f),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            items(
+                items = state.libros,
+                key = { it.id }
+            ) { libro ->
+                LibroItemCard(
+                    libro = libro,
+                    onClick = { onLibroClick(libro) }
+                )
+            }
+        }
     }
 }
 
@@ -296,6 +321,7 @@ fun FormLibros(
                 value = state.libro.nombre,
                 onValueChange = { onChangeLibro(state.libro.copy(nombre = it)) },
                 label = { Text("Nombre") },
+                leadingIcon = { Icon(Icons.Default.MenuBook, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -303,16 +329,17 @@ fun FormLibros(
                 value = state.libro.autor,
                 onValueChange = { onChangeLibro(state.libro.copy(autor = it)) },
                 label = { Text("Autor") },
+                leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
             OutlinedTextField(
                 value = if (state.libro.anio == 0) "" else state.libro.anio.toString(),
                 onValueChange = { texto ->
-                    val anioValido = texto.toIntOrNull() ?: 0
-                    onChangeLibro(state.libro.copy(anio = anioValido))
+                    onChangeLibro(state.libro.copy(anio = texto.toIntOrNull() ?: 0))
                 },
                 label = { Text("Año") },
+                leadingIcon = { Icon(Icons.Default.DateRange, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -320,19 +347,20 @@ fun FormLibros(
                 value = state.libro.categoria,
                 onValueChange = { onChangeLibro(state.libro.copy(categoria = it)) },
                 label = { Text("Categoria") },
+                leadingIcon = { Icon(Icons.Default.Category, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
             LibroCheckbox(
                 checked = state.libro.disponible,
-                onCheckedChange = { nuevoValor ->
-                    onChangeLibro(state.libro.copy(disponible = nuevoValor))
-                }
+                onCheckedChange = { onChangeLibro(state.libro.copy(disponible = it)) }
             )
             Button(
                 onClick = onAddLibro,
                 modifier = Modifier.fillMaxWidth()
             ) {
+                Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(8.dp))
                 Text("Añadir Libro")
             }
         }
@@ -345,17 +373,9 @@ fun LibroCheckbox(
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-    ) {
-        Checkbox(
-            checked = checked,
-            onCheckedChange = onCheckedChange
-        )
-        Text(
-            text = if (checked) "Libro disponible" else "No disponible"
-        )
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier) {
+        Checkbox(checked = checked, onCheckedChange = onCheckedChange)
+        Text(text = if (checked) "Libro disponible" else "No disponible")
     }
 }
 
