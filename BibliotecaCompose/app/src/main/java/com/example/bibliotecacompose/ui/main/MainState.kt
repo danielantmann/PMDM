@@ -11,5 +11,6 @@ data class MainState(
         categoria = "",
         disponible = false
     ),
+    val libroSeleccionado: Libro? = null,
     val error: String? = null
 )

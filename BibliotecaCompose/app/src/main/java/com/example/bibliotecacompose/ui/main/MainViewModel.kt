@@ -61,15 +61,23 @@ class MainViewModel(
         }
     }
 
-    fun onDeleteLibro(libro: Libro){
+    fun onSelectLibro(libro: Libro) {
+        _state.update {
+            it.copy(libroSeleccionado = libro)
+        }
+    }
+
+    fun onDeleteLibro(){
+        val seleccionado = _state.value.libroSeleccionado ?: return
         viewModelScope.launch {
-            deleteLibroUseCase.deleteLibro(libro)
+            deleteLibroUseCase.deleteLibro(seleccionado)
 
             val listaActualizada = cargarLibrosUseCase.cargarLibros()
 
             _state.update {
                 it.copy(
                     libros = listaActualizada,
+                    libroSeleccionado = null
                 )
             }
         }

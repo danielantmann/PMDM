@@ -34,9 +34,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -78,6 +75,7 @@ fun MainPatnalla(
         state = state,
         onChangeLibro = viewModel::onChangeLibro,
         onAddLibro = viewModel::onAddLibro,
+        onSelectLibro = viewModel::onSelectLibro,
         onBorrarLibro = viewModel::onDeleteLibro
     )
 }
@@ -89,9 +87,10 @@ fun MainPantallaContent(
     state: MainState,
     onChangeLibro: (Libro) -> Unit,
     onAddLibro: () -> Unit,
-    onBorrarLibro: (Libro) -> Unit
+    onSelectLibro: (Libro) -> Unit,
+    onBorrarLibro: () -> Unit
 ) {
-    var libroSeleccionado by remember { mutableStateOf<Libro?>(null) }
+
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -114,9 +113,7 @@ fun MainPantallaContent(
             // LISTA: solo esta lleva weight
             SeccionListaLibros(
                 state = state,
-                onLibroClick = { libroClickeado ->
-                    libroSeleccionado = libroClickeado
-                },
+                onLibroClick = onSelectLibro,
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
@@ -134,12 +131,7 @@ fun MainPantallaContent(
 
             // BORRAR: misma lógica que tenías
             Button(
-                onClick = {
-                    libroSeleccionado?.let { libro ->
-                        onBorrarLibro(libro)
-                        libroSeleccionado = null
-                    }
-                },
+                onClick = onBorrarLibro,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.errorContainer,
                     contentColor = MaterialTheme.colorScheme.onErrorContainer
