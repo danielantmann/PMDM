@@ -19,7 +19,7 @@ object Pedidos {
     fun getListaPedidos() = pedidos.toList()
 
     fun addPedido(p: Pedido){
-       pedidos.add(p)
+       pedidos.add(p.copy(id = nextId++))
     }
 
     fun deletePedido(p : Pedido){
