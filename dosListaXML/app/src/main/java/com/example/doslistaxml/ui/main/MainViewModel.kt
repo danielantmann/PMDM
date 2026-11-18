@@ -95,6 +95,17 @@ class MainViewModel(
         )
     }
 
+    // Función para el botón extra: mueve la tarea que esté seleccionada globalmente
+    fun handleMoverSeleccionada() {
+        val seleccionada = _state.value?.tareaSeleccionada
+        if (seleccionada == null) {
+            _state.value = _state.value?.copy(error = "Selecciona una tarea primero para moverla")
+            return
+        }
+        // Reutilizamos la lógica que ya tienes hecha para mover
+        handleMover(seleccionada)
+    }
+
     fun handleDelete() {
         val seleccionada = _state.value?.tareaSeleccionada
         if (seleccionada == null) {

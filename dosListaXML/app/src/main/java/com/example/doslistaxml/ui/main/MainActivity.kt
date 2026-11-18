@@ -25,20 +25,6 @@ class MainActivity : AppCompatActivity() {
             AppModule.cargarTareasUseCase
         )
     }
-//Binding con ITEM
-//    private val adapterPendientes: TareaAdapter by lazy {
-//        TareaAdapter(
-//            onSelectClick = { tarea -> viewModel.handleSelectTarea(tarea) },
-//            onMoverClick = { tarea -> viewModel.handleMover(tarea) }
-//        )
-//    }
-//
-//    private val adapterCompletadas: TareaAdapter by lazy {
-//        TareaAdapter(
-//            onSelectClick = { tarea -> viewModel.handleSelectTarea(tarea) },
-//            onMoverClick = { tarea -> viewModel.handleMover(tarea) }
-//        )
-//    }
 
     // Adaptador para Tareas Pendientes (con TareaAdapter2 en ambos lados)
     private val adapterPendientes: TareaAdapter2 by lazy {
@@ -111,6 +97,13 @@ class MainActivity : AppCompatActivity() {
                         it?.toString() ?: ""
                     )
                 }
+            }
+
+            // 👇 NUEVO: Clic en el botón extra que acabamos de añadir en el XML
+            btnAccionExtra.setOnClickListener {
+                viewModel.handleMoverSeleccionada() // Cambia esto por el método de tu ViewModel si tiene otro nombre
+                etNombre.setText("")
+                etDescripcion.setText("")
             }
 
             btnGuardar.setOnClickListener {
