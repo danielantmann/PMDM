@@ -99,9 +99,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            // 👇 NUEVO: Clic en el botón extra que acabamos de añadir en el XML
+            // El botón extra llama directamente al ViewModel para mover la seleccionada
             btnAccionExtra.setOnClickListener {
-                viewModel.handleMoverSeleccionada() // Cambia esto por el método de tu ViewModel si tiene otro nombre
+                viewModel.handleMoverSeleccionada()
                 etNombre.setText("")
                 etDescripcion.setText("")
             }
