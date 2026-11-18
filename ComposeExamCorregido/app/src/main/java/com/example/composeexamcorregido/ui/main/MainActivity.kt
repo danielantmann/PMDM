@@ -443,7 +443,7 @@ fun PreviewPantallaEscribe() {
                     Alumno(
                         id = 1L,
                         nombre = "Juan",
-                        apellido = "Pérez",
+                        apellido = "JUAN",
                         curso = "2º DAM",
                         edad = "18",
                         email = "juan@mail.com",
